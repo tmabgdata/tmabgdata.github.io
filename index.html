@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600&family=Poppins:wght@200;300;400;600;800&family=Roboto&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Argon CSS -->
+    <link type="text/css" href="css/argon-design-system.min.css" rel="stylesheet">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <!-- Personal  Styling -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="imagem/png" href="assets\img\favicon.ico" />
+
+    <title>Thiago Alves</title>
+  </head>
+  <body>
+<!-- ------------- HEADER -------------------->
+    <header class="header" id="header">
+        <nav class="nav container navbar-expand-lg">
+            <a href="#" class="nav__logo navbar-brand ml-3">Thiago Alves</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list grid">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link">
+                            <i class="uil uil-estate nav__icon"></i>Home
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">
+                            <i class="uil uil-user nav__icon"></i>About
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#skills" class="nav__link">
+                            <i class="uil uil-file nav__icon"></i>Skills
+                        </a>
+                    </li>
+
+                    <!--<li class="nav__item">
+                        <a href="#qualifications" class="nav__link">
+                            <i class="uil uil-diary nav__icon"></i>Qualification
+                        </a>
+                    </li>-->
+
+                    <li class="nav__item">
+                        <a href="#portfolio" class="nav__link">
+                            <i class="uil uil-scenery nav__icon"></i>Portfolio
+                        </a>
+                    </li>
+
+                    <!--<li class="nav__item">
+                        <a href="#contact" class="nav__link">
+                            <i class="uil uil-message nav__icon"></i>Contact Us
+                        </a>
+                    </li>-->
+                </ul>
+                <i class="uil uil-times nav__close" id="nav-close"></i>
+            </div>
+
+            <div class="nav__btns">
+                <!-- THEME CHANGING BUTTONS -->
+                <i data-mode= "dark" class="uil uil-moon moon-change-theme" id="theme-button"></i>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="uil uil-apps"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+<!-- ============== MAIN =============== -->
+    <main class="main">
+
+    <!-- ------------- HOME -------------------->
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+
+                <div class="home__content grid">
+                    <div class="home__social">
+                        <a href="https://www.linkedin.com/in/thiago-bigdata/" target="_blank" class="home__social-icon" id="myLinkedIn">
+                            <i class="uil uil-linkedin-alt"></i>
+                        </a>
+
+                        <!-- <a href="" target="_blank" class="home__social-icon" id="myInstagram">
+                            <i class="uil uil-instagram"></i>
+                        </a> -->
+
+                        <a href="https://github.com/tmabgdata" target="_blank" class="home__social-icon" id="myGithub">
+                            <i class="uil uil-github-alt"></i>
+                        </a>
+
+                        <!-- <a href="" target="_blank" class="home__social-icon" id="myFacebook">
+                            <i class="uil uil-facebook-f"></i>
+                        </a> -->
+
+                        <!-- <a href="" target="_blank" class="home__social-icon" id="myTwitter">
+                            <i class="uil uil-twitter-alt"></i>
+                        </a> -->
+                    </div>
+                </div>
+
+                <div class="home__data">
+                    <small class="home__welcome s-color"> Welcome to my Portfolio Website! </small>
+                    <h1 class="home__title"> Hey I'm </h1>
+                    <div id="typewriter"></div>
+                    <h3 class="home__subtitle" id="home-bio">I am currently majoring in Data Science Technology</h3>
+                    <!--<a href="#contact" class="button button--flex">
+                        Contact Me <i class="uil uil-message button__icon"></i>
+                    </a>-->
+                </div>
+
+            </div>
+
+            <div class="home__scroll">
+                <a href="#about" class="home__scroll-button button--flex">
+                    <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+                    <!-- <span class="home__scroll-name"> Scroll Down </span>
+                    <i class="uil uil-arrow-down home__scroll-arrow"></i> -->
+                </a>
+            </div>
+        </section>
+
+    <!-- ------------- ABOUT ME -------------------->
+        <section class="about section" id="about">
+            <h2 class="section__title">About</h2>
+            <span class="section__subtitle"> My Introduction </span>
+
+            <div class="about__container container grid">
+                <img src="assets\img\ProfilePicturePhoto2.png" alt="my achievement photo" class="about__img">
+
+                <div class="about__data">
+                    <p class="about__description" id="home-about"> 
+                        Hello, currently as a data professional
+                         I have developed data engineering and analytics skills, 
+                        with a focus on developing data processing pipelines end to end
+                         and developing data warehouses using modern data stacks.
+                    </p>
+                </div>
+
+                <div class="about__info">
+                    <!--<div>
+                        <span class="about__info-title"> -01 </span>
+                        <span class="about__info-name"> Years <br> Experience </span>
+                    </div>-->
+
+                    <div>
+                        <span class="about__info-title"> 3 </span>
+                        <span class="about__info-name"> Completed <br> Projects </span>
+                    </div>
+
+                    <!--<div>
+                        <span class="about__info-title"> 02+ </span>
+                        <span class="about__info-name"> Companies <br> Worked </span>
+                    </div> -->
+                </div>
+
+                <div class="about__buttons">
+                    <a href="assets\file\Currículo.pdf" download="my_CV" target="_blank" class="button button--flex">
+                        Download CV <i class="uil uil-download-alt button__icon"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    <!-- ------------- Skills-------------------->
+        <section class="skills section" id="skills">
+            <h2 class="section__title"> Skillset </h2>
+            <span class="section__subtitle"> My skillsets </span>
+
+            <div class="skills__container container grid">
+                <div class="row" id="skillset_container">
+                    <!-- Skill 1 -->
+                    <div class="skills__container-card">
+                        <div class="card_skill shadow2">
+                            <div class="imgBx">
+                                <img src="assets\img\python-seeklogo.com.svg" alt="Python logo">
+                            </div>
+                            <div class="contentBx">
+                                <h2> Python </h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Skill 2 -->
+                    <div class="skills__container-card">
+                        <div class="card_skill shadow2">
+                            <div class="imgBx">
+                                <img src="assets\img\amazon-database-seeklogo.com.svg" alt="SQL logo">
+                            </div>
+                            <div class="contentBx">
+                                <h2> SQL </h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skills__container-card">
+                        <div class="card_skill shadow2">
+                            <div class="imgBx">
+                                <img src="assets\img\power-bi-seeklogo.com.svg" alt="Power BI logo">
+                            </div>
+                            <div class="contentBx">
+                                <h2> PowerBI </h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 3 -->
+                    <!--<div class="skills__container-card">
+                        <div class="card_skill shadow2">
+                            <div class="imgBx">
+                                <img src="assets\img\airflow-seeklogo.com.svg" alt="Airflow logo">
+                            </div>
+                            <div class="contentBx">
+                                <h2> Airflow </h2>
+                            </div>
+                        </div>
+                    </div>-->
+
+                     <!-- Skill 7 -->
+                    <!--<div class="skills__container-card">
+                        <div class="card_skill shadow2">
+                            <div class="imgBx">
+                                <img src="assets\img\dbt-seeklogo.com.svg" alt="DBT logo">
+                            </div>
+                            <div class="contentBx">
+                                <h2> DBT </h2>
+                            </div>
+                        </div>
+                    </div>-->
+
+                </div>
+            </div>
+         </section>
+    
+
+    <!-- ------------- PORTFOLIO -------------------->
+        <section class="portfolio section" id="portfolio">
+            <h2 class="section__title">Portfolio</h2>
+            <span class="section__subtitle"> My most recent works </span>
+
+            <div class="blog-slider">
+                <div class="blog-slider__wrp swiper-wrapper">
+                    
+                    <!-- For portfolio item 1 -->
+                    <div class="blog-slider__item swiper-slide">
+                        <div class="blog-slider__img">
+                            <img src="assets\img\Alura_Pets_PowerBI.png" alt="Dashboard Petshop">
+                        </div>
+
+                        <div class="blog-slider__content">
+                            <span class="blog-slider__code"> Jun 2023</span>
+                            <div class="blog-slider__title"> Petshop </div>
+                            <div class="blog-slider__text"> Development of a dashboard with commercial analysis of a pet shop.</div>
+                            <a href="https://app.powerbi.com/view?r=eyJrIjoiNjcyYTY5ZmQtMDQzNi00NjhmLWI2MGItMmQ2OWY0OTBlNzRhIiwidCI6IjQ3ZjY2MGU3LTM3OGEtNDhlMy1iOTg3LTEyMDRhOGM2NzRkYiJ9" target="_blank" class="button blog-slider__button button--flex"> 
+                                Demo
+                                <i class="uil uil-play button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- For portfolio item 2 -->
+                    <div class="blog-slider__item swiper-slide">
+                        <div class="blog-slider__img">
+                            <img src="assets\img\Ecommerce_Brasil.png" alt="Portfolio item">
+                        </div>
+
+                        <div class="blog-slider__content">
+                            <span class="blog-slider__code"> Jun 2023</span>
+                            <div class="blog-slider__title"> E-commerce </div>
+                            <div class="blog-slider__text"> Dashboard with data from the Brazilian E-commerce scenario between the years 2017 and 2018.” </div>
+                            <a href="https://app.powerbi.com/view?r=eyJrIjoiNWQyZTQ3ZTAtMzc1ZS00OTg3LThkYzctYmE1YTNiMmE5OGVkIiwidCI6IjQ3ZjY2MGU3LTM3OGEtNDhlMy1iOTg3LTEyMDRhOGM2NzRkYiJ9" target="_blank" class="button blog-slider__button button--flex"> 
+                                Demo
+                                <i class="uil uil-play button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- For portfolio item 3 -->
+                    <div class="blog-slider__item swiper-slide">
+                        <div class="blog-slider__img">
+                            <img src="assets\img\Adventure_Works.png" alt="Portfolio item">
+                        </div>
+
+                        <div class="blog-slider__content">
+                            <span class="blog-slider__code"> Jun 2023</span>
+                            <div class="blog-slider__title"> Sales </div>
+                            <div class="blog-slider__text"> Commercial dashboard with metrics analysis of the fictitious company Adventure Works.</div>
+                            <a href="https://app.powerbi.com/view?r=eyJrIjoiYjczZDRjYTMtODRlMy00MmNjLTgzYjItNTlkMWJkOGQ2NTEyIiwidCI6IjQ3ZjY2MGU3LTM3OGEtNDhlMy1iOTg3LTEyMDRhOGM2NzRkYiJ9" target="_blank" class="button blog-slider__button button--flex"> 
+                                Demo
+                                <i class="uil uil-play button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- For portfolio item 4 -->
+                    <!--<div class="blog-slider__item swiper-slide">
+                        <div class="blog-slider__img">
+                            <img src="https://res.cloudinary.com/bjha/image/upload/v1628002160/portfolio%20images/wikipedia_design_django_v28dmu.png" alt="Portfolio item">
+                        </div>
+
+                        <div class="blog-slider__content">
+                            <span class="blog-slider__code"> September 2020</span>
+                            <div class="blog-slider__title"> WiKi </div>
+                            <div class="blog-slider__text"> Design a Wikipedia-like online encyclopedia.</div>
+                            <a href="https://www.youtube.com/watch?v=9NarL9NsRr8" target="_blank" class="button blog-slider__button button--flex"> 
+                                Demo
+                                <i class="uil uil-play button__icon"></i>
+                            </a>
+                        </div>
+                    </div>-->
+                    
+                    <div class="blog-slider__pagination"></div>
+                </div>
+            </div>
+
+        </section>
+
+<!-- ------------- FOOTER -------------------->
+    <footer class="footer">
+        <div class="footer__bg">
+            <div class="footer__container container grid">
+
+                <div>
+                    <h1 class="footer__title"> Thiago Alves </h1>
+                    <span class="footer__subtitle"> Data Science Student </span>
+                </div>
+
+                <ul class="footer__links">
+                    <li>
+                        <a href="#about" class="footer__link"> About Me</a>
+                    </li>
+
+                    <li>
+                        <a href="#portfolio" class="footer__link"> My Portfolio</a>
+                    </li>
+
+                    <!--<li>
+                        <a href="#contact" class="footer__link"> Contact Me</a>
+                    </li>-->
+                </ul>
+
+                <div class="footer__socials">
+                    <a href="https://www.linkedin.com/in/thiago-bigdata/" target="_blank" class="footer__social" id="myLinkedIn">
+                        <i class="uil uil-linkedin-alt"></i>
+                    </a>
+
+                    <!-- <a href="" target="_blank" class="footer__social" id="myInstagram">
+                        <i class="uil uil-instagram"></i>
+                    </a> -->
+
+                    <a href="https://github.com/tmabgdata" target="_blank" class="footer__social" id="myGithub">
+                        <i class="uil uil-github-alt"></i>
+                    </a>
+
+                    <!-- <a href="" target="_blank" class="footer__social" id="myFacebook">
+                        <i class="uil uil-facebook-f"></i>
+                    </a> -->
+
+                    <!-- <a href="" target="_blank" class="footer__social" id="myTwitter">
+                        <i class="uil uil-twitter-alt"></i>
+                    </a> -->
+                </div>
+            </div>
+
+            <p class="footer__copy">&#169; Thiago Alves. All rights reserved</p>
+        </div>
+    </footer>
+  
+
+<!-- ------------- SCROLL TOP -------------------->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="uil uil-arrow-up scrollup__icon"></i>
+    </a>
+
+
+
+
+
+
+
+    <!-- Core -->
+    <script src="js/core/jquery.min.js"></script>
+    <script src="js/core/popper.min.js"></script>
+    <script src="js/core/bootstrap.min.js"></script>
+
+    <!-- Argon JS -->
+    <script src="js/argon-design-system.js"></script>
+
+    <!--  Typewriter CSS Effect -->
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Self Script -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
