@@ -69,11 +69,16 @@ console.log("Remove menu profile is working!")
 
 
 new Typewriter('#typewriter', {
-  strings: ['Data Student', 'Data Analytics', 'Data Engineering', 'Analytics Engineering', ' '],
-  autoStart: true,
-  loop: true,
-  cursor: "|"
-});
+    strings: ['Data Analyst', 'Machine Learning Engineer', 'AI Researcher', 'Tech Enthusiast'],
+    autoStart: true,
+    loop: true,
+    cursor: "|",
+    delay: 75,  // Velocidade de digitação (menor número = mais rápido)
+    deleteSpeed: 50,  // Velocidade de apagamento
+    pauseFor: 2000,  // Pausa entre as frases
+    cursorClassName: "custom-cursor",  // Adicionando uma classe personalizada para o cursor
+  });
+  
 console.log("Typewriter effect is working!")
 
 //===================================== Portfolio Swiper =========================
@@ -136,3 +141,29 @@ function scrollActive() {
     console.log("Section highlight working!")
 }
 window.addEventListener('scroll', scrollActive)
+
+//===================================== REDIRECT MESSAGE TO WHATSAPP =========================
+
+function sendToWhatsApp() {
+    const name = document.getElementById('message-name').value;
+    const email = document.getElementById('message-email').value;
+    const subject = document.getElementById('message-subject').value || 'No Subject';
+    const message = document.getElementById('message').value;
+
+    // Verifique se os campos obrigatórios estão preenchidos
+    if (!name || !email || !message) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+
+    // Seu número de WhatsApp com o código do país (sem "+")
+    const phoneNumber = "5561981918217"; // Substitua pelo seu número com código do país
+
+    // Mensagem formatada para o WhatsApp
+    const whatsappMessage = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`
+    )}`;
+
+    // Redireciona para o WhatsApp
+    window.open(whatsappMessage, '_blank');
+}
