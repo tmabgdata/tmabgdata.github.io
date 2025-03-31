@@ -69,17 +69,25 @@ console.log("Remove menu profile is working!")
 
 
 new Typewriter('#typewriter', {
-    strings: ['Data Analyst', 'Machine Learning Engineer', 'AI Researcher', 'Tech Enthusiast'],
+    strings: [ 
+        'Data Engineering',
+        'ETL/ELT Pipelines',
+        'Azure Cloud',
+        'Apache Airflow',
+        'Snowflake',
+        'Data Warehousing',
+        'Python/SQL',
+        'DBT',
+        'Spark'
+    ],
     autoStart: true,
     loop: true,
     cursor: "|",
-    delay: 75,  // Velocidade de digitação (menor número = mais rápido)
-    deleteSpeed: 50,  // Velocidade de apagamento
-    pauseFor: 2000,  // Pausa entre as frases
-    cursorClassName: "custom-cursor",  // Adicionando uma classe personalizada para o cursor
-  });
-  
-console.log("Typewriter effect is working!")
+    delay: 50,  // Mais rápido
+    deleteSpeed: 30,
+    pauseFor: 1000,
+    cursorClassName: "custom-cursor",
+});
 
 //===================================== Portfolio Swiper =========================
 

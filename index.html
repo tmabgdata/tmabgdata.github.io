@@ -123,13 +123,29 @@
                 </div>
 
                 <div class="home__data">
-                    <small class="home__welcome s-color"> Welcome to my Portfolio Website! </small>
-                    <h1 class="home__title"> Hey I'm </h1>
+                    <!-- Título com cargo claro -->
+                    <h1 class="home__title"> 
+                        Thiago Alves 
+                        <span class="home__role s-color">Data Engineer</span>
+                    </h1>
+                
+                    <!-- Subtítulo focado em resultados -->
+                    <h3 class="home__subtitle" id="home-bio">
+                        Building Scalable Data Pipelines & Cloud Solutions
+                    </h3>
+                
+                    <!-- Typewriter com palavras-chave técnicas -->
                     <div id="typewriter"></div>
-                    <h3 class="home__subtitle" id="home-bio">A data professional with expertise in technology, data science, and artificial intelligence. Committed to continuous development and driving innovation in data-driven solutions. Focused on delivering impactful results through analytical rigor and creative problem-solving. </h3>
-                    <a href="#contact" class="button button--flex">
-                        Contact Me <i class="uil uil-message button__icon"></i>
-                    </a>
+                
+                    <!-- Call-to-Action (CTA) mais direto -->
+                    <div class="home__cta">
+                        <a href="#portfolio" class="button button--flex">
+                            See My Work <i class="uil uil-arrow-right button__icon"></i>
+                        </a>
+                        <a href="#contact" class="button button--flex button__alt">
+                            Contact Me <i class="uil uil-message button__icon"></i>
+                        </a>
+                    </div>
                 </div>
 
             </div>
@@ -152,8 +168,19 @@
                 <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1733550838/profile.jpg" alt="my achievement photo" class="about__img">
 
                 <div class="about__data">
-                    <p class="about__description" id="home-about"> 
-                        Data professional specializing in Data Science, Data Engineering, and Artificial Intelligence. With a deep understanding of modern data technologies and machine learning techniques, I am dedicated to delivering impactful, data-driven solutions. I am passionate about developing efficient data pipelines, building intelligent systems, and leveraging AI to solve real-world problems.
+                    <p class="about__description" id="home-about">
+                        <b>Data Engineer</b> specializing in end-to-end cloud data solutions with measurable business impact.
+                    </p>
+                    
+                    <ul class="about__list">
+                        <li>✅ Building <b>scalable pipelines</b> (Azure/AWS/GCP) using Airflow and Spark</li>
+                        <li>✅ Designing <b>cloud data warehouses</b> (Snowflake/BigQuery) with cost optimization</li>
+                        <li>✅ Automating ETL/ELT workflows with Python, SQL, and dbt</li>
+                    </ul>
+                
+                    <p class="about__description">
+                        Delivered <b>35% faster processing</b> and <b>20% cost reduction</b> in cloud environments.
+                        I transform raw data into strategic assets through robust infrastructure.
                     </p>
                 </div>
 
@@ -190,54 +217,7 @@
             
             <div class="skills__container container grid">
                 <div class="row" id="skillset_container">
-                    <!-- Skill 1 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">                          
-                              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML logo"/>
-                            </div>
-                            <div class="contentBx">
-                                <h2> HTML </h2>
-                            </div>
-                        </div>
-                    </div> -->
-                
-                    <!-- Skill 2 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> CSS </h2>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Skill 3 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JS logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> JavaScript </h2>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Skill 4 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" alt="BS logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Bootstrap </h2>
-                            </div>
-                        </div>
-                    </div> -->
-
+      
                     <!-- Skill 5 -->
                     <div class="skills__container-card">
                         <div class="card_skill shadow2">
@@ -262,57 +242,6 @@
                         </div>
                     </div>
 
-                    <!-- Skill 6 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Git </h2>
-                            </div>
-                        </div>
-                    </div> -->
-
-
-                    <!-- Skill 7 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627831742/skillset%20logos/github-seeklogo.com_yhhbou.svg" alt="GitHub logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Github </h2>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Skill 8 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="Vscode logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> VSCode </h2>
-                            </div>
-                        </div>
-                    </div> -->
-
-
-                    <!-- Skill 9 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Linux </h2>
-                            </div>
-                        </div>
-                    </div> -->
-
-
                     <!-- Skill 10 -->
                     <div class="skills__container-card">
                         <div class="card_skill shadow2">
@@ -325,7 +254,7 @@
                         </div>
                     </div> 
 
-                    <!-- Skill 11 
+                    <!-- Skill 11 -->
                     <div class="skills__container-card">
                         <div class="card_skill shadow2">
                             <div class="imgBx">
@@ -335,93 +264,7 @@
                                 <h2> AirFlow </h2>
                             </div>
                         </div>
-                    </div> -->
-
-                    <!-- Skill 12 -->
-                    
-                    <!-- Skill 13 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Pandas </h2>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Skill 14 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="Numpy logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Numpy </h2>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Skill 15 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="SciKit logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> SciKit </h2>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Skill 16 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="Tensorflow logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Tensorflow </h2>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Skill 17 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-original.svg" alt="Keras logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Keras </h2>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Skill 18 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="Pytorch logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Pytorch </h2>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Skill 19 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="Jupyter logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Jupyter </h2>
-                            </div>
-                        </div>
-                    </div> -->
+                    </div> 
 
                     <!-- Skill 20 -->
                     <div class="skills__container-card">
@@ -434,18 +277,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Skill 21 
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/plotly/plotly-original.svg" alt="Plotly logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Plotly </h2>
-                            </div>
-                        </div>
-                    </div> -->
                     
                     <!-- Skill 22 -->
                     <div class="skills__container-card">
@@ -548,11 +379,11 @@
                                             <div class="card-body">
                                                 <div class="task">
                                                     <div class="abstract">
-                                                        <h3 class="qualification__title"> Data Science Technology </h3>
-                                                        <p class="qualification__subtitle"> Uninter University </p>
+                                                        <h3 class="qualification__title">Data Science Bachelor's Degree</h3>
+                                                        <p class="qualification__subtitle">Uninter University</p>
                                                     </div>
                                                     <div class="details">
-                                                        <p class="qualification__subtitle"> Analyze, Engineer, Optimize, Innovate </p>
+                                                        <p class="qualification__subtitle">Data Pipeline Specialist | Cloud Solutions Architect | AI Engineer</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -574,7 +405,7 @@
                                         <h5>
                                             <span class="badge qualification__calendar">
                                                 <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2018
+                                                2025
                                             </span>
                                         </h5>
 
@@ -591,11 +422,53 @@
                                             <div class="card-body">
                                                 <div class="task">
                                                     <div class="abstract">
-                                                        <h3 class="qualification__title"> Technical in Buildings </h3>
-                                                        <p class="qualification__subtitle"> Federal Institute of Brazilia </p>
+                                                        <h3 class="qualification__title">Data Science Specilization</h3>
+                                                        <p class="qualification__subtitle">XP Education University</p>
                                                     </div>
                                                     <div class="details">
-                                                        <p class="qualification__subtitle"> Plan, Design, Build, Oversee </p>
+                                                        <p class="qualification__subtitle"> Data Science Fundamentals | Analytics | Statistics | Machine Learning </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Timeline item 3 -->
+                                <div class="row">
+                                    <!-- Timeline design -->
+                                    <div class="col-auto text-center flex-column d-sm-flex">
+                                        <div class="row h-50 qualification__journey">
+                                            <div class="col">
+                                                <span class="qualification__line"></span>
+                                            </div>
+                                            <div class="col">&nbsp;</div>
+                                        </div>
+
+                                        <h5>
+                                            <span class="badge qualification__calendar">
+                                                <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
+                                                2025
+                                            </span>
+                                        </h5>
+
+                                        <div class="row h-50 qualification__journey">
+                                            <div class="col">
+                                                <span class="qualification__line"></span>
+                                            </div>
+                                            <div class="col">&nbsp;</div>
+                                        </div>
+                                    </div>
+                                    <!-- Timeline content Events -->
+                                    <div class="col py-2">
+                                        <div class="card education-card transparent_card mirror-face shadow2">
+                                            <div class="card-body">
+                                                <div class="task">
+                                                    <div class="abstract">
+                                                        <h3 class="qualification__title"> Data Engineer Specialization </h3>
+                                                        <p class="qualification__subtitle"> XP Education University </p>
+                                                    </div>
+                                                    <div class="details">
+                                                        <p class="qualification__subtitle"> Data Engineering Fundamentals | Data Pipelines | Big Data & Data Lakes | Data Stream </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -631,50 +504,8 @@
 
                         <div id="expreience_timeline">
                             <div class="container py-2">
+                                
                                 <!-- Timeline item 1 -->
-                                <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-
-                                        <h5>
-                                            <span class="badge qualification__calendar">
-                                                <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2022
-                                            </span>
-                                        </h5>
-
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2">
-                                        <div class="card education-card transparent_card mirror-face shadow2">
-                                            <div class="card-body">
-                                                <div class="task">
-                                                    <div class="abstract">
-                                                        <h3 class="qualification__title"> Data Solutions Consultant </h3>
-                                                        <p class="qualification__subtitle"> Thiago Alves </p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <p class="qualification__subtitle"> As a Data Solutions Consultant, I specialize in transforming raw data into actionable insights. With expertise in Data Science, Data Engineering, and Analytics, I design tailored solutions to meet business challenges. From building robust ETL pipelines to developing interactive dashboards in Power BI, I help organizations unlock the full potential of their data to drive informed decisions and strategic growth. </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                 <!-- Timeline item 2 -->
                                  <div class="row">
                                     <!-- Timeline design -->
                                     <div class="col-auto text-center flex-column d-sm-flex">
@@ -688,7 +519,7 @@
                                         <h5>
                                             <span class="badge qualification__calendar">
                                                 <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2019
+                                                2025
                                             </span>
                                         </h5>
 
@@ -705,11 +536,17 @@
                                             <div class="card-body">
                                                 <div class="task">
                                                     <div class="abstract">
-                                                        <h3 class="qualification__title"> Drafting Specialist </h3>
-                                                        <p class="qualification__subtitle"> AutoCAD Consultant </p>
+                                                        <h3 class="qualification__title">Currency Exchange Data Pipeline</h3>
+                                                        <p class="qualification__subtitle">Financial Data Automation</p>
                                                     </div>
                                                     <div class="details">
-                                                        <p class="qualification__subtitle"> An expert in creating precise and detailed engineering designs using AutoCAD. Specialized in developing technical drawings for construction, architecture, and engineering projects, ensuring accuracy and adherence to industry standards. Skilled in translating concepts into comprehensive plans for implementation. </p>
+                                                        <p class="qualification__subtitle">
+                                                            Real-time FX rates processing system:<br>
+                                                            • Airflow-orchestrated API extraction<br>
+                                                            • PySpark transformations in Databricks<br>
+                                                            • Automated Slack reporting<br>
+                                                            • Daily visualizations delivery
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -717,7 +554,7 @@
                                     </div>
                                 </div>
 
-                                 <!-- Timeline item 3 -->
+                                <!-- Timeline item 2 -->
                                  <div class="row">
                                     <!-- Timeline design -->
                                     <div class="col-auto text-center flex-column d-sm-flex">
@@ -731,7 +568,7 @@
                                         <h5>
                                             <span class="badge qualification__calendar">
                                                 <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2017
+                                                2025
                                             </span>
                                         </h5>
 
@@ -748,17 +585,22 @@
                                             <div class="card-body">
                                                 <div class="task">
                                                     <div class="abstract">
-                                                        <h3 class="qualification__title"> Physics Teaching Assistant </h3>
-                                                        <p class="qualification__subtitle"> Federal Institute of Brazilia </p>
+                                                        <h3 class="qualification__title">Azure Data Pipeline to Power BI</h3>
+                                                        <p class="qualification__subtitle">End-to-End Cloud Solution</p>
                                                     </div>
                                                     <div class="details">
-                                                        <p class="qualification__subtitle"> Served as a Physics Monitor at the Federal Institute of Brasília, supporting students in understanding complex concepts, solving problems, and preparing for assessments. Developed skills in tutoring, academic support, and effective communication while fostering a collaborative learning environment. </p>
+                                                        <p class="qualification__subtitle">
+                                                            Built medallion architecture pipeline in Azure:<br>
+                                                            • Extracted data from SQL Server/Database<br>
+                                                            • Processed in Data Lake with PySpark (Databricks)<br>
+                                                            • Transformed in Synapse Analytics<br>
+                                                            • Visualized in Power BI
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
                                 <!-- Timeline item end -->
                                 <div class="row">
@@ -794,14 +636,18 @@
                     <!-- For portfolio item 1 -->
                     <div class="blog-slider__item swiper-slide">
                         <div class="blog-slider__img">
-                            <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1733548265/Kindle%20Review.jpg" alt="Kindle Reviews ">
+                            <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1743442630/archit1_dd1v8x.png" alt="Azure Data Pipeline Slack">
                         </div>
 
                         <div class="blog-slider__content">
-                            <span class="blog-slider__code"> December 2024</span>
-                            <div class="blog-slider__title"> NLP Kindle Review Sentiment Analysis </div>
-                            <div class="blog-slider__text"> Analyzed Kindle customer reviews to identify sentiment polarity using Natural Language Processing techniques. Implemented machine learning models for sentiment classification, enhancing understanding of customer feedback.</div>
-                            <a href="https://github.com/tmabgdata/Data-Science/tree/main/NLP_Kindle_Review_Sentiment_Analysis" target="_blank" class="button blog-slider__button button--flex"> 
+                            <span class="blog-slider__code"> February 2025</span>
+                            <div class="blog-slider__title"> Currency Exchange Data Pipeline </div>
+                            <div class="blog-slider__text">  Real-time FX rates processing system:<br>
+                                • Airflow-orchestrated API extraction<br>
+                                • PySpark transformations in Databricks<br>
+                                • Automated Slack reporting<br>
+                                • Daily visualizations delivery</div>
+                            <a href="https://github.com/tmabgdata/Data-Engineering/tree/master/Airflow_Azure_Databricks_Pipeline" target="_blank" class="button blog-slider__button button--flex"> 
                                 Demo
                                 <i class="uil uil-play button__icon"></i>
                             </a>
@@ -811,31 +657,18 @@
                     <!-- For portfolio item 2 -->
                     <div class="blog-slider__item swiper-slide">
                         <div class="blog-slider__img">
-                            <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1733548753/Language_Detection.jpg" alt="Language Detection">
+                            <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1743442921/archit2_z4fhtp.png" alt="Azure Data Pipeline Power BI">
                         </div>
 
                         <div class="blog-slider__content">
-                            <span class="blog-slider__code"> December 2024</span>
-                            <div class="blog-slider__title"> NLP Language Detection Using Regex and Language Models </div>
-                            <div class="blog-slider__text"> Developed a robust language detection system combining regex-based heuristics with language models. Provided accurate identification of multiple languages in textual data. </div>
-                            <a href="https://github.com/tmabgdata/Data-Science/tree/main/NLP_LM's_Regex" target="_blank" class="button blog-slider__button button--flex"> 
-                                Demo
-                                <i class="uil uil-play button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- For portfolio item 3 -->
-                    <div class="blog-slider__item swiper-slide">
-                        <div class="blog-slider__img">
-                            <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1733549057/SpellChecker.jpg" alt="SpellChecker">
-                        </div>
-
-                        <div class="blog-slider__content">
-                            <span class="blog-slider__code"> December 2024</span>
-                            <div class="blog-slider__title"> NLP Spell Checker Project </div>
-                            <div class="blog-slider__text"> Designed an NLP-based spell checker capable of detecting and correcting spelling errors in text. Utilized data preprocessing and machine learning to improve text accuracy.</div>
-                            <a href="https://github.com/tmabgdata/Data-Science/tree/main/NLP_SpellChecker_Project" target="_blank" class="button blog-slider__button button--flex"> 
+                            <span class="blog-slider__code"> March 2025</span>
+                            <div class="blog-slider__title"> Azure Data Pipeline to Power BI </div>
+                            <div class="blog-slider__text">     Built medallion architecture pipeline in Azure:<br>
+                                • Extracted data from SQL Server/Database<br>
+                                • Processed in Data Lake with PySpark (Databricks)<br>
+                                • Transformed in Synapse Analytics<br>
+                                • Visualized in Power BI</div>
+                            <a href="https://github.com/tmabgdata/Data-Engineering/tree/master/Azure_Data_Pipeline_PowerBI" target="_blank" class="button blog-slider__button button--flex"> 
                                 Demo
                                 <i class="uil uil-play button__icon"></i>
                             </a>
@@ -979,7 +812,7 @@
 
                 <div>
                     <h1 class="footer__title"> THIAGO </h1>
-                    <span class="footer__subtitle"> Data Scientist & AI Developer</span>
+                    <span class="footer__subtitle"> Data Engineer & Cloud Architect Soluctions</span>
                 </div>
 
                 <ul class="footer__links">
