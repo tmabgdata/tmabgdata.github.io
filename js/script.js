@@ -70,15 +70,24 @@ console.log("Remove menu profile is working!")
 
 new Typewriter('#typewriter', {
     strings: [ 
+        'Data Architecture',
         'Data Engineering',
+        'Lakehouse (Medallion)',
         'ETL/ELT Pipelines',
         'Azure Cloud',
+        'Databricks',
+        'Apache Spark',
         'Apache Airflow',
-        'Snowflake',
-        'Data Warehousing',
-        'Python/SQL',
         'DBT',
-        'Spark'
+        'Snowflake ',
+        'Data Warehousing',
+        'Power BI',
+        'Data Visualization',
+        'SQL',
+        'Python',
+        'Machine Learning'
+
+
     ],
     autoStart: true,
     loop: true,
