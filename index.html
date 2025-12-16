@@ -1,976 +1,1733 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiago Alves | Especialista em IA & Dados</title>
+    <meta name="description" content="Especialista em IA Generativa, Data Engineering e Business Intelligence. Soluções personalizadas para transformar dados em vantagem competitiva.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        /* Reset e Variáveis */
+        :root {
+            --primary: #00f3ff;
+            --primary-dark: #00ccd6;
+            --secondary: #b967ff;
+            --accent: #ff00ff;
+            --dark: #0a0a0a;
+            --dark-light: #1a1a1a;
+            --text: #ffffff;
+            --text-secondary: #cccccc;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
 
-    <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600&family=Poppins:wght@200;300;400;600;800&family=Roboto&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text);
+            font-family: 'Exo 2', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Efeitos de Fundo */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -3;
+        }
+
+        .gradient-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 243, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(185, 103, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(255, 0, 255, 0.05) 0%, transparent 50%);
+            z-index: -2;
+        }
+
+        /* Luzes Neon Flutuantes */
+        .neon-lights {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .neon-light {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.3;
+        }
+
+        .light-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            top: 10%;
+            left: 10%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .light-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            top: 60%;
+            right: 10%;
+            animation: float 20s infinite ease-in-out reverse;
+        }
+
+        .light-3 {
+            width: 200px;
+            height: 200px;
+            background: var(--accent);
+            bottom: 20%;
+            left: 20%;
+            animation: float 12s infinite ease-in-out;
+        }
+
+        /* Efeito Glassmorphism */
+        .glass-effect {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow);
+        }
+
+        /* Navegação */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            transition: var(--transition);
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-highlight {
+            color: var(--primary);
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            margin-top: -5px;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .cta-nav {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .cta-nav::after {
+            display: none;
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 243, 255, 0.3);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding: 12rem 5% 6rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .title-line {
+            display: block;
+        }
+
+        .title-gradient {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .highlight-text {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .hero-profile {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--glass);
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+
+        .profile-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .profile-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1.2rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 243, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            flex: 1;
+            position: relative;
+            height: 500px;
+        }
+
+        /* Efeitos Visuais no Hero */
+        .ai-orbits {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid;
+            border-radius: 50%;
+            animation: rotate linear infinite;
+        }
+
+        .orbit-1 {
+            width: 300px;
+            height: 300px;
+            border-color: rgba(0, 243, 255, 0.3);
+            animation-duration: 20s;
+        }
+
+        .orbit-2 {
+            width: 400px;
+            height: 400px;
+            border-color: rgba(185, 103, 255, 0.3);
+            animation-duration: 25s;
+            animation-direction: reverse;
+        }
+
+        .orbit-3 {
+            width: 200px;
+            height: 200px;
+            border-color: rgba(255, 0, 255, 0.3);
+            animation-duration: 15s;
+        }
+
+        .orbit-node {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--dark-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 2px solid;
+        }
+
+        .orbit-1 .orbit-node {
+            border-color: var(--primary);
+            color: var(--primary);
+            animation: pulse 2s infinite;
+        }
+
+        .orbit-2 .orbit-node {
+            border-color: var(--secondary);
+            color: var(--secondary);
+            animation: pulse 2s infinite 0.5s;
+        }
+
+        .orbit-3 .orbit-node {
+            border-color: var(--accent);
+            color: var(--accent);
+            animation: pulse 2s infinite 1s;
+        }
+
+        .central-brain {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-cards {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .floating-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 600;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-card:nth-child(1) { animation-delay: 0s; }
+        .floating-card:nth-child(2) { animation-delay: 2s; }
+        .floating-card:nth-child(3) { animation-delay: 4s; }
+
+        /* Seções Gerais */
+        section {
+            padding: 6rem 5%;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Serviços */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-tech span {
+            background: rgba(0, 243, 255, 0.1);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Cases de Sucesso */
+        .case-study {
+            background: var(--glass);
+            border-radius: 15px;
+            padding: 3rem;
+            display: flex;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 1px solid var(--glass-border);
+        }
+
+        .case-content {
+            flex: 1;
+        }
+
+        .case-badge {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-result {
+            background: rgba(0, 243, 255, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+        }
+
+        .case-challenge, .case-solution {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid rgba(0, 243, 255, 0.3);
+        }
+
+        .case-challenge h4, .case-solution h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tags span {
+            background: rgba(0, 243, 255, 0.1);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Contato WhatsApp */
+        .contact-section {
+            background: rgba(10, 10, 10, 0.9);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--glass);
+            border-radius: 20px;
+            padding: 4rem;
+            border: 1px solid var(--glass-border);
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-header p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        .whatsapp-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .whatsapp-option {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            color: var(--text);
+            transition: var(--transition);
+            display: block;
+        }
+
+        .whatsapp-option:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .whatsapp-option h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .whatsapp-option p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .direct-contact {
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .direct-contact h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(5, 5, 5, 0.95);
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-column h4 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Botão Flutuante WhatsApp */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .float-whatsapp:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .float-whatsapp i {
+            font-size: 1.8rem;
+        }
+
+        /* Efeito Especial no Canto - Circuito Neural */
+        .corner-effect {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 300px;
+            z-index: 998;
+            pointer-events: none;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .corner-effect:hover {
+            opacity: 1;
+        }
+
+        .circuit-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .circuit-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            height: 2px;
+            filter: drop-shadow(0 0 3px var(--primary));
+        }
+
+        .line-1 {
+            width: 150px;
+            top: 50px;
+            right: 0;
+            transform: rotate(45deg);
+            animation: circuit-pulse 4s infinite;
+        }
+
+        .line-2 {
+            width: 120px;
+            top: 100px;
+            right: 30px;
+            transform: rotate(-30deg);
+            animation: circuit-pulse 3.5s infinite 0.5s;
+        }
+
+        .line-3 {
+            width: 180px;
+            bottom: 50px;
+            right: 0;
+            transform: rotate(135deg);
+            animation: circuit-pulse 4.5s infinite 1s;
+        }
+
+        .circuit-node {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--dark);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .node-1 {
+            top: 40px;
+            right: 40px;
+            animation: node-float 6s infinite ease-in-out;
+        }
+
+        .node-2 {
+            top: 100px;
+            right: 120px;
+            border-color: var(--secondary);
+            animation: node-float 7s infinite ease-in-out 1s;
+        }
+
+        .node-3 {
+            bottom: 80px;
+            right: 60px;
+            border-color: var(--accent);
+            animation: node-float 5s infinite ease-in-out 2s;
+        }
+
+        .node-4 {
+            bottom: 40px;
+            right: 140px;
+            border-color: var(--primary);
+            animation: node-float 6.5s infinite ease-in-out 0.5s;
+        }
+
+        .node-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: inherit;
+            animation: node-pulse 2s infinite;
+        }
+
+        .data-flow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .data-bit {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: data-bit-flow 3s linear infinite;
+        }
+
+        /* Animações */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes circuit-pulse {
+            0%, 100% {
+                opacity: 0.2;
+                box-shadow: 0 0 5px var(--primary);
+            }
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary);
+            }
+        }
+
+        @keyframes node-float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-10px) scale(1.1);
+            }
+        }
+
+        @keyframes node-pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes data-bit-flow {
+            0% {
+                transform: translate(0, 0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(100px, -100px);
+                opacity: 0;
+            }
+        }
+
+        .animated {
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1200px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .case-study {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .corner-effect {
+                display: none; /* Esconder em telas menores */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 10, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .float-whatsapp span {
+                display: none;
+            }
+
+            .float-whatsapp {
+                padding: 1rem;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                justify-content: center;
+            }
+
+            .corner-effect {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Efeitos de Fundo -->
+    <div id="particles-js"></div>
+    <div class="gradient-bg"></div>
+    <div class="neon-lights">
+        <div class="neon-light light-1"></div>
+        <div class="neon-light light-2"></div>
+        <div class="neon-light light-3"></div>
+    </div>
     
-    <!-- ICONS -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="icon" href="https://res.cloudinary.com/dof97idbn/image/upload/v1733550725/icon.png" type="image/x-icon">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <!-- Argon CSS -->
-    <link type="text/css" href="css/argon-design-system.min.css" rel="stylesheet">
-
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
-    <!-- Personal  Styling -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Efeito Especial no Canto -->
+    <div class="corner-effect" id="cornerEffect">
+        <div class="circuit-container">
+            <div class="circuit-line line-1"></div>
+            <div class="circuit-line line-2"></div>
+            <div class="circuit-line line-3"></div>
+            <div class="circuit-node node-1">
+                <div class="node-pulse"></div>
+            </div>
+            <div class="circuit-node node-2">
+                <div class="node-pulse"></div>
+            </div>
+            <div class="circuit-node node-3">
+                <div class="node-pulse"></div>
+            </div>
+            <div class="circuit-node node-4">
+                <div class="node-pulse"></div>
+            </div>
+            <div class="data-flow" id="dataFlow"></div>
+        </div>
+    </div>
     
-    <title>Thiago Alves</title>
-  </head>
-  <body>
-<!-- ------------- HEADER -------------------->
-    <header class="header" id="header">
-        <nav class="nav container navbar-expand-lg">
-            <a href="#" class="nav__logo navbar-brand ml-3">Thiago Alves</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+    <!-- Navegação -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">THIAGO<span class="logo-highlight">ALVES</span></span>
+                <div class="logo-sub">IA & DADOS</div>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#services" class="nav-link">Serviços</a>
+                <a href="#cases" class="nav-link">Cases</a>
+                <a href="#expertise" class="nav-link">Expertise</a>
+                <a href="#contact" class="nav-link cta-nav">Falar com Especialista</a>
+            </div>
+            
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
             </button>
+        </div>
+    </nav>
 
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list grid">
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link">
-                            <i class="uil uil-estate nav__icon"></i>Home
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#about" class="nav__link">
-                            <i class="uil uil-user nav__icon"></i>About
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#skills" class="nav__link">
-                            <i class="uil uil-file nav__icon"></i>Skills
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#qualifications" class="nav__link">
-                            <i class="uil uil-diary nav__icon"></i>Qualification
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#portfolio" class="nav__link">
-                            <i class="uil uil-scenery nav__icon"></i>Portfolio
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link">
-                            <i class="uil uil-message nav__icon"></i>Contact Us
-                        </a>
-                    </li>
-                </ul>
-                <i class="uil uil-times nav__close" id="nav-close"></i>
-            </div>
-
-            <div class="nav__btns">
-                <!-- THEME CHANGING BUTTONS -->
-                <i data-mode= "dark" class="uil uil-moon moon-change-theme" id="theme-button"></i>
-
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="uil uil-apps"></i>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge pulse">
+                    <i class="fas fa-crown"></i> ESPECIALISTA PREMIUM
                 </div>
-            </div>
-        </nav>
-    </header>
-
-<!-- ============== MAIN =============== -->
-    <main class="main">
-
-    <!-- ------------- HOME -------------------->
-        <section class="home section" id="home">
-            <div class="home__container container grid">
-
-                <div class="home__content grid">
-                    <div class="home__social">
-                        <a href="https://www.linkedin.com/in/thiagoalves-analytics/" target="_blank" class="home__social-icon" id="myLinkedIn">
-                            <i class="uil uil-linkedin-alt"></i>
-                        </a>
-                        <!--
-                        <a href="" target="_blank" class="home__social-icon" id="myInstagram">
-                            <i class="uil uil-instagram"></i>
-                        </a>
-                        -->
-                        <a href="https://github.com/tmabgdata" target="_blank" class="home__social-icon" id="myGithub">
-                            <i class="uil uil-github-alt"></i>
-                        </a>
-                        <!--
-                        <a href="" target="_blank" class="home__social-icon" id="myFacebook">
-                            <i class="uil uil-facebook-f"></i>
-                        </a>
-                        -->
-                        <!--
-                        <a href="" target="_blank" class="home__social-icon" id="myTwitter">
-                            <i class="uil uil-twitter-alt"></i>
-                        </a>
-                        -->
+                
+                <h1 class="hero-title">
+                    <span class="title-line">Transforme Dados em</span>
+                    <span class="title-line"><span class="title-gradient">Vantagem Competitiva</span></span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Especialista em <span class="highlight-text">IA Generativa, Data Engineering e Business Intelligence</span>. 
+                    Soluções personalizadas que geram resultados mensuráveis para seu negócio.
+                </p>
+                
+                <div class="hero-profile">
+                    <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1765838456/thiago_alves_data_ia_profile_2026.jpg" 
+                         alt="Thiago Alves - Especialista em IA & Dados" class="profile-img">
+                    <div class="profile-info">
+                        <h3>Thiago Alves</h3>
+                        <p>Especialista em IA & Dados</p>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Projetos</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Clientes</div>
+                            </div>
+                            <!-- <div class="stat">
+                                <div class="stat-number">AI</div>
+                                <div class="stat-label">Especialista</div>
+                            </div> -->
+                        </div>
                     </div>
                 </div>
-
-                <div class="home__data">
-                    <!-- Título com cargo claro -->
-                \   <div class="home__data">
-                    <!-- Clear job title -->
-                    <h1 class="home__title"> 
-                        Thiago Alves 
-                        <span class="home__role s-color">Data &amp; AI Solutions Architect</span>
-                    </h1>
-
-                    <!-- Result-focused subtitle -->
-                    <h3 class="home__subtitle" id="home-bio">
-                        Designing cloud data ecosystems, Lakehouse architectures, and GenAI-driven analytics
-                    </h3>
+                
+                <div class="hero-cta">
+                    <a href="https://wa.me/5561982161978?text=Olá! Gostaria de conversar sobre soluções de IA e Dados para meu negócio." 
+                       target="_blank" class="btn-primary">
+                        <i class="fab fa-whatsapp"></i> Conversar no WhatsApp
+                    </a>
+                    <a href="#services" class="btn-secondary">
+                        <i class="fas fa-search"></i> Ver Serviços
+                    </a>
                 </div>
-
-                
-                    <!-- Typewriter com palavras-chave técnicas -->
-                    <div id="typewriter"></div>
-                
-                    <!-- Call-to-Action (CTA) mais direto -->
-                    <div class="home__cta">
-                        <a href="#portfolio" class="button button--flex">
-                            See My Work <i class="uil uil-arrow-right button__icon"></i>
-                        </a>
-                        <a href="#contact" class="button button--flex button__alt">
-                            Contact Me <i class="uil uil-message button__icon"></i>
-                        </a>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="ai-orbits">
+                    <div class="orbit orbit-1">
+                        <div class="orbit-node">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="orbit orbit-2">
+                        <div class="orbit-node">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                    </div>
+                    <div class="orbit orbit-3">
+                        <div class="orbit-node">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                    </div>
+                    <div class="central-brain">
+                        <i class="fas fa-brain"></i>
                     </div>
                 </div>
-
+                
+                <div class="floating-cards">
+                    <div class="floating-card">
+                        <i class="fas fa-rocket"></i>
+                        <span>SaaS AI-Native</span>
+                    </div>
+                    <div class="floating-card">
+                        <i class="fas fa-bolt"></i>
+                        <span>Automação Inteligente</span>
+                    </div>
+                    <div class="floating-card">
+                        <i class="fas fa-chart-network"></i>
+                        <span>Estratégia de Dados</span>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="home__scroll">
-                <a href="#about" class="home__scroll-button button--flex">
-                    <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-                    <!-- <span class="home__scroll-name"> Scroll Down </span>
-                    <i class="uil uil-arrow-down home__scroll-arrow"></i> -->
+    <!-- Serviços -->
+    <section id="services" class="services">
+        <div class="section-header">
+            <h2 class="section-title">Soluções <span class="title-gradient">Especializadas</span></h2>
+            <p class="section-subtitle">Tecnologias de ponta para impulsionar seu negócio</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card animated">
+                <div class="service-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>IA Generativa & LLMs</h3>
+                <p>Implementação de sistemas de IA conversacional, fine-tuning de modelos e arquiteturas RAG para análise inteligente de dados.</p>
+                <div class="service-tech">
+                    <span>ChatGPT API</span>
+                    <span>RAG</span>
+                    <span>LangChain</span>
+                    <span>Fine-tuning</span>
+                </div>
+                <a href="https://wa.me/5561982161978?text=Tenho interesse em IA Generativa para minha empresa." 
+                   target="_blank" class="btn-secondary" style="margin-top: 1rem; padding: 0.8rem 1.5rem;">
+                    <i class="fab fa-whatsapp"></i> Conversar sobre IA
                 </a>
             </div>
-        </section>
-
-    <!-- ------------- ABOUT ME -------------------->
-        <section class="about section" id="about">
-            <h2 class="section__title">About</h2>
-            <span class="section__subtitle"> My Introduction </span>
-
-            <div class="about__container container grid">
-                <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1761779583/ProfilePicturePhoto2_sbb29d.png" alt="my achievement photo" class="about__img">
-
-                <div class="about__data">
-                    <p class="about__description" id="home-about">
-                        <b>Data & AI Solutions Architect</b> specializing in designing and implementing cloud-based data ecosystems that turn information into measurable business growth.
-                    </p>
-                    
-                    <ul class="about__list">
-                        <li>Architecting <b>scalable data pipelines</b> and Lakehouse solutions (Medallion architecture) with Azure Databricks</li>
-                        <li>Designing and automating <b>data warehouses</b> and analytical layers for strategic BI insights</li>
-                        <li>Integrating <b>multi-source data</b> (APIs, CRMs, Ads platforms) using Python, SQL, and Azure Fabric</li>
-                    </ul>
-
-                    <p class="about__description">
-                        Delivering end-to-end data and AI solutions that combine engineering, analytics, and GenAI to transform raw data into actionable intelligence. 
-                        Focused on performance, governance, and measurable ROI.
-                    </p>
-                </div>
-
-                <div class="about__info">
-                    <div>
-                        <span class="about__info-title"> 02+ </span>
-                        <span class="about__info-name"> Years <br> Experience </span>
-                    </div>
-
-                    <div>
-                        <span class="about__info-title"> 10+ </span>
-                        <span class="about__info-name"> Completed <br> Projects </span>
-                    </div>
-
-                    <div>
-                        <span class="about__info-title"> 02+ </span>
-                        <span class="about__info-name"> Companies <br> Worked </span>
-                    </div>
-                </div>
-
-                <div class="about__buttons">
-                    <a href="https://drive.google.com/file/d/1Xkwe16q_k3n3Na0-u7-tqAB-ET3CfmU4/view?usp=sharing" download="Thiago Alves - Data Science & AI Developer" target="_blank" class="button button--flex">
-                        Download CV <i class="uil uil-download-alt button__icon"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    <!-- ------------- Skills-------------------->
-        <section class="skills section" id="skills">
-            <h2 class="section__title"> Skillset </h2>
-            <span class="section__subtitle"> My skillsets </span>
-
             
-            <div class="skills__container container grid">
-                <div class="row" id="skillset_container">
-      
-                    <!-- Skill 1 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Python </h2>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Skill 2 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqldeveloper/sqldeveloper-original.svg" alt="Database logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> SQL </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill 3 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="Mongodb logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> NoSQL </h2>
-                            </div>
-                        </div>
-                    </div> 
-
-                    <!-- Skill 4 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apacheairflow/apacheairflow-original.svg" alt="AirFlow logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> AirFlow </h2>
-                            </div>
-                        </div>
-                    </div> 
-
-                    <!-- Skill 5 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1733541370/Power%20BI%20Logo.png" alt="PowerBI logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> PowerBI </h2>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Skill 6 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" alt="Azure logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Azure </h2>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Skill 7 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="Aws logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Aws </h2>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Skill 8 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="GCP logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> GCP </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill 9 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Docker </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill 10 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original.svg" alt="Streamlit logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Streamlit </h2>
-                            </div>
-                        </div>
-                    </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="service-card animated">
+                <div class="service-icon">
+                    <i class="fas fa-database"></i>
                 </div>
+                <h3>Data Engineering</h3>
+                <p>Pipelines de dados escaláveis, arquitetura Data Lakehouse e integração de múltiplas fontes para dados confiáveis.</p>
+                <div class="service-tech">
+                    <span>Apache Spark</span>
+                    <span>Airflow</span>
+                    <span>Databricks</span>
+                    <span>Azure Data</span>
+                </div>
+                <a href="https://wa.me/5561982161978?text=Preciso de solução em Data Engineering." 
+                   target="_blank" class="btn-secondary" style="margin-top: 1rem; padding: 0.8rem 1.5rem;">
+                    <i class="fab fa-whatsapp"></i> Conversar sobre Dados
+                </a>
             </div>
-        </section>
-    <!-- ------------- QUALIFICATIONS (Education and Experience) -------------------->
-        <section class="qualification section" id="qualifications">
-            <h2 class="section__title"> Qualification </h2>
-            <span class="section__subtitle"> My persoanl Journey </span>
-
-            <div class="qualification__container container">
-
-                <div class="row mt-lg-0">
-                    <!-- Education -->
-                    <div class="col-lg-6 col-sm-10 col-md-10 mt-2 qualification__content" id="education">
-                        <div class="qualification__button button--flex">
-                            <i class="uil uil-graduation-cap qualification__icon"></i> Education
-                        </div>
-
-                        <div id="education_timeline">
-                            <div class="container py-2">
-
-                                <!-- Timeline item 1 -->
-                                <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-
-                                        <h5>
-                                            <span class="badge qualification__calendar">
-                                                <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2025
-                                            </span>
-                                        </h5>
-
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2">
-                                        <div class="card education-card transparent_card mirror-face shadow2">
-                                            <div class="card-body">
-                                                <div class="task">
-                                                    <div class="abstract">
-                                                        <h3 class="qualification__title">Data Science Bachelor's Degree</h3>
-                                                        <p class="qualification__subtitle">Uninter University</p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <p class="qualification__subtitle">Data Pipeline Specialist | Cloud Solutions Architect | AI Engineer</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Timeline item 2 -->
-                                <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-
-                                        <h5>
-                                            <span class="badge qualification__calendar">
-                                                <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2025
-                                            </span>
-                                        </h5>
-
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2">
-                                        <div class="card education-card transparent_card mirror-face shadow2">
-                                            <div class="card-body">
-                                                <div class="task">
-                                                    <div class="abstract">
-                                                        <h3 class="qualification__title">Data Science Specilization</h3>
-                                                        <p class="qualification__subtitle">XP Education University</p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <p class="qualification__subtitle"> Data Science Fundamentals | Analytics | Statistics | Machine Learning </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Timeline item 3 -->
-                                <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-
-                                        <h5>
-                                            <span class="badge qualification__calendar">
-                                                <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2025
-                                            </span>
-                                        </h5>
-
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2">
-                                        <div class="card education-card transparent_card mirror-face shadow2">
-                                            <div class="card-body">
-                                                <div class="task">
-                                                    <div class="abstract">
-                                                        <h3 class="qualification__title"> Data Engineer Specialization </h3>
-                                                        <p class="qualification__subtitle"> XP Education University </p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <p class="qualification__subtitle"> Data Engineering Fundamentals | Data Pipelines | Big Data & Data Lakes | Data Stream </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                 <!-- Timeline item end -->
-                                 <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__start">
-                                                    <i class="uil uil-rocket qualification__start-icon"></i>
-                                                </span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Experience -->
-                    <div class="col-lg-6 col-sm-10 col-md-10 mt-2 qualification__content" id="experience">
-                        <div class="qualification__button button--flex">
-                            <i class="uil uil-briefcase-alt qualification__icon"></i> Experience
-                        </div>
-
-                        <div id="expreience_timeline">
-                            <div class="container py-2">
-                                
-                                <!-- Timeline item 1 -->
-                                 <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-
-                                        <h5>
-                                            <span class="badge qualification__calendar">
-                                                <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2025
-                                            </span>
-                                        </h5>
-
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2">
-                                        <div class="card education-card transparent_card mirror-face shadow2">
-                                            <div class="card-body">
-                                                <div class="task">
-                                                    <div class="abstract">
-                                                        <h3 class="qualification__title">Currency Exchange Data Pipeline</h3>
-                                                        <p class="qualification__subtitle">Financial Data Automation</p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <p class="qualification__subtitle">
-                                                            Real-time FX rates processing system:<br>
-                                                            • Airflow-orchestrated API extraction<br>
-                                                            • PySpark transformations in Databricks<br>
-                                                            • Automated Slack reporting<br>
-                                                            • Daily visualizations delivery
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Timeline item 2 -->
-                                <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-
-                                        <h5>
-                                            <span class="badge qualification__calendar">
-                                                <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2025
-                                            </span>
-                                        </h5>
-
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2">
-                                        <div class="card education-card transparent_card mirror-face shadow2">
-                                            <div class="card-body">
-                                                <div class="task">
-                                                    <div class="abstract">
-                                                        <h3 class="qualification__title">Azure Data Pipeline to Power BI</h3>
-                                                        <p class="qualification__subtitle">End-to-End Cloud Solution</p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <p class="qualification__subtitle">
-                                                            Built medallion architecture pipeline in Azure:<br>
-                                                            • Extracted data from SQL Server/Database<br>
-                                                            • Processed in Data Lake with PySpark (Databricks)<br>
-                                                            • Transformed in Synapse Analytics<br>
-                                                            • Visualized in Power BI
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Timeline item 3 -->
-                                 <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-
-                                        <h5>
-                                            <span class="badge qualification__calendar">
-                                                <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2023
-                                            </span>
-                                        </h5>
-
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2">
-                                        <div class="card education-card transparent_card mirror-face shadow2">
-                                            <div class="card-body">
-                                                <div class="task">
-                                                    <div class="abstract">
-                                                        <h3 class="qualification__title">Power BI Dashboards</h3>
-                                                        <p class="qualification__subtitle">Analytics Solutions</p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <p class="qualification__subtitle">
-                                                            Building Report and Dashboards Analysis<br>
-                                                            • Extracted data from SQL Server/Database<br>
-                                                            • Data Modeling with Power Query<br>
-                                                            • Visualized in Power BI
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                <!-- Timeline item end -->
-                                <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__start">
-                                                    <i class="uil uil-rocket qualification__start-icon"></i>
-                                                </span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            
+            <div class="service-card animated">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
                 </div>
+                <h3>Business Intelligence</h3>
+                <p>Dashboards interativos e análises preditivas para tomada de decisão baseada em dados em tempo real.</p>
+                <div class="service-tech">
+                    <span>Power BI</span>
+                    <span>Tableau</span>
+                    <span>SQL Avançado</span>
+                    <span>Python</span>
+                </div>
+                <a href="https://wa.me/5561982161978?text=Quero melhorar meus dashboards e BI." 
+                   target="_blank" class="btn-secondary" style="margin-top: 1rem; padding: 0.8rem 1.5rem;">
+                    <i class="fab fa-whatsapp"></i> Conversar sobre BI
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-    <!-- ------------- PORTFOLIO -------------------->
-        <section class="portfolio section" id="portfolio">
-            <h2 class="section__title">Portfolio</h2>
-            <span class="section__subtitle"> My most recent works </span>
-
-            <div class="blog-slider">
-                <div class="blog-slider__wrp swiper-wrapper">
-                    
-                    <!-- For portfolio item 1 -->
-
-                    <div class="blog-slider__item swiper-slide">
-                        <div class="blog-slider__img">
-                          <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1746054183/salesdashboardstreamlit.jpg" alt="TMA Sales Dashboard">
-                        </div>
-                      
-                        <div class="blog-slider__content">
-                            <span class="blog-slider__code">April 2025</span>
-                            <div class="blog-slider__title">TMA Sales Dashboard</div>
-                            <div class="blog-slider__text"> Interactive sales dashboard built with Streamlit and Plotly:<br>
-                                • Filter by region and year;<br>
-                                • Geographic bubble map and monthly time‐series;<br>
-                                • Dynamic KPIs for total revenue & sales count;<br>
-                                • CSV export of filtered data for further analysis</div>
-                            <a href="https://tma-salesdashboard.streamlit.app/" target="_blank" class="button blog-slider__button button--flex">
-                                Demo
-                                <i class="uil uil-play button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- For portfolio item 2 -->
-                    <div class="blog-slider__item swiper-slide">
-                        <div class="blog-slider__img">
-                            <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1743442921/archit2_z4fhtp.png" alt="Azure Data Pipeline Power BI">
-                        </div>
-
-                        <div class="blog-slider__content">
-                            <span class="blog-slider__code"> March 2025</span>
-                            <div class="blog-slider__title"> Azure Data Pipeline to Power BI </div>
-                            <div class="blog-slider__text">     Built medallion architecture pipeline in Azure:<br>
-                                • Extracted data from SQL Server/Database<br>
-                                • Processed in Data Lake with PySpark (Databricks)<br>
-                                • Transformed in Synapse Analytics<br>
-                                • Visualized in Power BI</div>
-                            <a href="https://github.com/tmabgdata/Data-Engineering/tree/master/Azure_Data_Pipeline_PowerBI" target="_blank" class="button blog-slider__button button--flex"> 
-                                Demo
-                                <i class="uil uil-play button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- For portfolio item 3 -->
-                    <div class="blog-slider__item swiper-slide">
-                        <div class="blog-slider__img">
-                            <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1743442630/archit1_dd1v8x.png" alt="Azure Data Pipeline Slack">
-                        </div>
-
-                        <div class="blog-slider__content">
-                            <span class="blog-slider__code"> February 2025</span>
-                            <div class="blog-slider__title"> Currency Exchange Data Pipeline </div>
-                            <div class="blog-slider__text">  Real-time FX rates processing system:<br>
-                                • Airflow-orchestrated API extraction<br>
-                                • PySpark transformations in Databricks<br>
-                                • Automated Slack reporting<br>
-                                • Daily visualizations delivery</div>
-                            <a href="https://github.com/tmabgdata/Data-Engineering/tree/master/Airflow_Azure_Databricks_Pipeline" target="_blank" class="button blog-slider__button button--flex"> 
-                                Demo
-                                <i class="uil uil-play button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- For portfolio item 4 -->
-                    <div class="blog-slider__item swiper-slide">
-                        <div class="blog-slider__img">
-                            <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1733549603/Olist_Brazil_Ecommerce_Analysis_%28Power%20BI%29.png" alt="Olist_Brazil_Ecommerce_Analysis_(Power BI)">
-                        </div>
-
-                        <div class="blog-slider__content">
-                            <span class="blog-slider__code"> March 2025</span>
-                            <div class="blog-slider__title"> Olist Brazil Ecommerce Analysis Report </div>
-                            <div class="blog-slider__text"> Conducted an ecommerce performance analysis for Olist Brazil using Power BI. Explored customer behavior, sales trends, and delivery times to optimize business operations.</div>
-                            <a href="https://app.powerbi.com/view?r=eyJrIjoiNmUzMWZkMDQtNGM5OS00YTcwLThhNGQtNjg1NzQ5ZGVhMzJjIiwidCI6ImU1YTM3MzU2LTI2MjYtNGI0ZC05NTA5LTdiNmQxODA0ODU5ZiJ9&pageName=ReportSection" target="_blank" class="button blog-slider__button button--flex"> 
-                                Demo
-                                <i class="uil uil-play button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- For portfolio item 5 -->
-                    <div class="blog-slider__item swiper-slide">
-                        <div class="blog-slider__img">
-                            <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1733549406/HumanResourceAnalysis.png" alt="HumanResourceAnalysis">
-                        </div>
-
-                        <div class="blog-slider__content">
-                            <span class="blog-slider__code"> June 2023</span>
-                            <div class="blog-slider__title"> Human Resource Analysis (Power BI) </div>
-                            <div class="blog-slider__text"> Created an interactive HR dashboard in Power BI to analyze employee performance, attrition rates, and workforce distribution. Enabled data-driven decision-making in HR processes.</div>
-                            <a href="https://app.powerbi.com/view?r=eyJrIjoiMmVlY2M5MmMtMWFlZS00NjZmLTk1YjctNGIyNWFiNzEyZDBjIiwidCI6IjQ3ZjY2MGU3LTM3OGEtNDhlMy1iOTg3LTEyMDRhOGM2NzRkYiJ9" target="_blank" class="button blog-slider__button button--flex"> 
-                                Demo
-                                <i class="uil uil-play button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- For portfolio item 6 -->
-                    <div class="blog-slider__item swiper-slide">
-                        <div class="blog-slider__img">
-                            <img src="https://res.cloudinary.com/dof97idbn/image/upload/v1733549809/Sales_Dashboard_AdventureWorks_%28Power%20BI%29.jpg" alt="Olist_Brazil_Ecommerce_Analysis_(Power BI)">
-                        </div>
-
-                        <div class="blog-slider__content">
-                            <span class="blog-slider__code"> June 2023</span>
-                            <div class="blog-slider__title"> Sales Dashboard AdventureWorks (Power BI) </div>
-                            <div class="blog-slider__text"> Built a dynamic sales dashboard for AdventureWorks to visualize revenue streams, product performance, and geographic sales data. Facilitated insights into key business metrics.
-                            </div>
-                            <a href="https://app.powerbi.com/view?r=eyJrIjoiYjczZDRjYTMtODRlMy00MmNjLTgzYjItNTlkMWJkOGQ2NTEyIiwidCI6IjQ3ZjY2MGU3LTM3OGEtNDhlMy1iOTg3LTEyMDRhOGM2NzRkYiJ9" target="_blank" class="button blog-slider__button button--flex"> 
-                                Demo
-                                <i class="uil uil-play button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="blog-slider__pagination"></div>
-                </div>
-            </div>
-
-        </section>
-
-    <!-- ------------- CONTACT US -------------------->
-        <section class="contact section" id="contact">
-            <h2 class="section__title"> Contact Me </h2>
-            <span class="section__subtitle"> Get in touch</span>
-
-            <div class="row mt-lg-6 justify-content-center contact_mail">
-                <!-- Contact information -->
-                <div class="col-lg-6 mx-lg-0 mx-2 contact__container container">
-                    <div class="contact__information">
-                        <i class="uil uil-phone contact__icon"></i>
-
-                        <div>
-                            <h3 class="contact__title">WhatsApp Me</h3>
-                            <span class="contact__subtitle">+55-61981918217</span>
-                        </div>
-                    </div>
-
-                    <div class="contact__information">
-                        <i class="uil uil-envelope contact__icon"></i>
-
-                        <div>
-                            <h3 class="contact__title">E-mail</h3>
-                            <span class="contact__subtitle">tma.bigdata@email.com</span>
-                        </div>
-                    </div>
-
-                    <div class="contact__information">
-                        <i class="uil uil-location-pin-alt contact__icon"></i>
-                        <div>
-                            <h3 class="contact__title">Address</h3>
-                            <span class="contact__subtitle"> Brazilia, Federal District - Brazil</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FORM -->
-                <div class="col-lg-6 pl-lg-4 mt-lg-0 mt-6 contact-form" id="message-me">
-                    <h2 class="contact__title"> Interested to work together? - <span> Let's talk </span></h2>
+    <!-- Cases de Sucesso -->
+    <section id="cases" class="cases">
+        <div class="section-header">
+            <h2 class="section-title">Cases de <span class="title-gradient">Sucesso</span></h2>
+            <p class="section-subtitle">Projetos reais com resultados mensuráveis</p>
+        </div>
+        
+        <div class="case-study animated">
+            <div class="case-content">
+                <div class="case-badge">Case Real - MGM Growth</div>
+                <h3>Plataforma SaaS AI-Native para Empresa de Marketing</h3>
+                <p class="case-result">
+                    <i class="fas fa-trophy"></i> Redução de 70% em tempo de análise e custos de desenvolvimento
+                </p>
                 
-                    <form id="contact-form" class="cf">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <input type="text" id="message-name" class="form-control form__color mb-30 cf" placeholder="Your Name" required>
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="email" id="message-email" class="form-control form__color mb-30 cf" placeholder="Your Email" required>
-                            </div>
-                            <div class="col-12">
-                                <input type="text" id="message-subject" class="form-control form__color mb-30 cf" placeholder="Subject">
-                            </div>
-                            <div class="col-12">
-                                <textarea id="message" class="form-control form__color mb-30 cf" cols="30" rows="5" placeholder="Your Message" required></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button type="button" onclick="sendToWhatsApp()" class="button button--flex send-message form_button">
-                                    Send Message
-                                    <i class="uil uil-message button__icon"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="case-challenge">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Desafio</h4>
+                    <p>Empresa dependia de dashboards Power BI estáticos que demandavam atualizações manuais constantes e não ofereciam insights acionáveis.</p>
                 </div>
                 
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="case-solution">
+                    <h4><i class="fas fa-cogs"></i> Solução</h4>
+                    <p>Desenvolvimento de plataforma SaaS com agentes de IA que analisam dados em tempo real, geram insights automáticos e tomam decisões autônomas.</p>
+                </div>
+                
+                <div class="tech-tags">
+                    <span>React/Lovable</span>
+                    <span>Supabase</span>
+                    <span>Python/LangChain</span>
+                    <span>Azure Data Factory</span>
+                    <span>Microsoft Fabric</span>
+                </div>
+                
+                <a href="https://wa.me/5561982161978?text=Quero um resultado similar para minha empresa." 
+                   target="_blank" class="btn-primary" style="margin-top: 1.5rem;">
+                    <i class="fab fa-whatsapp"></i> Quero resultado similar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section id="expertise" class="expertise">
+        <div class="section-header">
+            <h2 class="section-title">Minha <span class="title-gradient">Expertise</span></h2>
+            <p class="section-subtitle">Tecnologias e metodologias que domino</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Machine Learning</h3>
+                <p>Desenvolvimento e deploy de modelos preditivos, sistemas de recomendação e algoritmos de aprendizado supervisionado.</p>
+                <div class="service-tech">
+                    <span>Python</span>
+                    <span>Scikit-learn</span>
+                    <span>PyTorch</span>
+                    <span>TensorFlow</span>
                 </div>
             </div>
-        </section>
-    </main>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Cloud Computing</h3>
+                <p>Arquitetura e implementação de soluções em nuvem para escalabilidade, performance e redução de custos.</p>
+                <div class="service-tech">
+                    <span>AWS</span>
+                    <span>Azure</span>
+                    <span>GCP</span>
+                    <span>Docker</span>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>MLOps & LLMOps</h3>
+                <p>Implementação de pipelines para deploy, monitoramento e versionamento de modelos de machine learning e LLMs.</p>
+                <div class="service-tech">
+                    <span>MLflow</span>
+                    <span>Kubernetes</span>
+                    <span>GitHub Actions</span>
+                    <span>CI/CD</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- ------------- FOOTER -------------------->
+    <!-- Contato WhatsApp -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container animated">
+            <div class="contact-header">
+                <h2>Vamos Transformar Seus Dados?</h2>
+                <p>Escolha o melhor assunto para nossa conversa</p>
+            </div>
+            
+            <div class="whatsapp-options">
+                <a href="https://wa.me/5561982161978?text=Olá! Gostaria de uma consultoria estratégica sobre IA e Dados para meu negócio." 
+                   target="_blank" class="whatsapp-option">
+                    <h4><i class="fas fa-chess-king"></i> Consultoria Estratégica</h4>
+                    <p>Para CEOs e tomadores de decisão que querem traçar uma estratégia de dados</p>
+                </a>
+                
+                <a href="https://wa.me/5561982161978?text=Tenho um projeto específico de IA/Dados e preciso de um especialista para executar." 
+                   target="_blank" class="whatsapp-option">
+                    <h4><i class="fas fa-code"></i> Projeto Específico</h4>
+                    <p>Já tenho um projeto definido e preciso de especialista para executar</p>
+                </a>
+                
+                <a href="https://wa.me/5561982161978?text=Gostaria de conhecer mais cases e trabalhos anteriores em IA e Dados." 
+                   target="_blank" class="whatsapp-option">
+                    <h4><i class="fas fa-trophy"></i> Portfólio e Cases</h4>
+                    <p>Quero ver mais exemplos de trabalhos anteriores e resultados</p>
+                </a>
+                
+                <a href="https://wa.me/5561982161978?text=Preciso de uma solução urgente para problema de dados/IA no meu negócio." 
+                   target="_blank" class="whatsapp-option">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Problema Urgente</h4>
+                    <p>Tenho uma situação crítica que precisa de solução imediata</p>
+                </a>
+            </div>
+            
+            <div class="direct-contact">
+                <h3><i class="fab fa-whatsapp"></i> WhatsApp Direto</h3>
+                <p>Fale diretamente comigo para conversas mais rápidas e diretas</p>
+                <a href="https://wa.me/5561982161978" target="_blank" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> (61) 98216-1978
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer__bg">
-            <div class="footer__container container grid">
-
-                <div>
-                    <h1 class="footer__title"> THIAGO </h1>
-                    <span class="footer__subtitle"> Data Engineer & Cloud Architect Soluctions</span>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-text">THIAGO<span class="logo-highlight">ALVES</span></span>
+                    <div class="logo-sub">IA & DADOS</div>
                 </div>
-
-                <ul class="footer__links">
-                    <li>
-                        <a href="#about" class="footer__link"> About Me</a>
-                    </li>
-
-                    <li>
-                        <a href="#portfolio" class="footer__link"> My Portfolio</a>
-                    </li>
-
-                    <li>
-                        <a href="#contact" class="footer__link"> Contact Me</a>
-                    </li>
-                </ul>
-
-                <div class="footer__socials">
-                    <a href="https://www.linkedin.com/in/thiago-bigdata/?locale=en_US" target="_blank" class="footer__social" id="myLinkedIn">
-                        <i class="uil uil-linkedin-alt"></i>
+                <p>Especialista em IA Generativa, Data Engineering e Business Intelligence</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Conectar</h4>
+                    <a href="https://www.linkedin.com/in/thiagoalves-data-ai/" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
                     </a>
-                    <!--
-                    <a href="" target="_blank" class="footer__social" id="myInstagram">
-                        <i class="uil uil-instagram"></i>
+                    <a href="https://www.instagram.com/thiagoalves.ia/" target="_blank">
+                        <i class="fab fa-instagram"></i> Instagram
                     </a>
-                    -->
-                    <a href="https://github.com/tmabgdata" target="_blank" class="footer__social" id="myGithub">
-                        <i class="uil uil-github-alt"></i>
+                    <a href="https://github.com/tmabgdata" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
                     </a>
-                    <!--
-                    <a href="" target="_blank" class="footer__social" id="myFacebook">
-                        <i class="uil uil-facebook-f"></i>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <a href="https://wa.me/5561982161978" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
-                    -->
-                    <!--
-                    <a href="" target="_blank" class="footer__social" id="myTwitter">
-                        <i class="uil uil-twitter-alt"></i>
+                    <a href="mailto:tma.bigdata@gmail.com">
+                        <i class="fas fa-envelope"></i> Email
                     </a>
-                    -->
+                    <a href="#contact">
+                        <i class="fas fa-calendar"></i> Consultoria
+                    </a>
                 </div>
             </div>
-
-            <p class="footer__copy">&#169; Thiago Alves. All rights reserved</p>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Thiago Alves - Especialista em IA & Dados. Todos os direitos reservados.</p>
+            <p>Brasília - DF | Atendimento remoto para todo Brasil</p>
         </div>
     </footer>
-  
 
-<!-- ------------- SCROLL TOP -------------------->
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="uil uil-arrow-up scrollup__icon"></i>
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5561982161978?text=Olá! Vi seu site e gostaria de conversar sobre IA e Dados." 
+       target="_blank" class="float-whatsapp">
+        <i class="fab fa-whatsapp"></i>
+        <span>Falar no WhatsApp</span>
     </a>
 
+    <script>
+        // Inicializar partículas
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#00f3ff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.3, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#00f3ff",
+                    opacity: 0.1,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            }
+        });
 
+        // Menu mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
+        // Fechar menu ao clicar em link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
 
+        // Criar partículas de dados para o efeito do canto
+        function createDataBits() {
+            const dataFlow = document.getElementById('dataFlow');
+            if (!dataFlow) return;
 
+            // Limpar partículas existentes
+            dataFlow.innerHTML = '';
 
-    <!-- Core -->
-    <script src="js/core/jquery.min.js"></script>
-    <script src="js/core/popper.min.js"></script>
-    <script src="js/core/bootstrap.min.js"></script>
+            // Criar 12 partículas
+            for (let i = 0; i < 12; i++) {
+                const bit = document.createElement('div');
+                bit.className = 'data-bit';
+                
+                // Posição aleatória
+                const left = Math.random() * 80 + 10;
+                const top = Math.random() * 80 + 10;
+                bit.style.left = `${left}%`;
+                bit.style.top = `${top}%`;
+                
+                // Cor aleatória
+                const colors = ['#00f3ff', '#b967ff', '#ff00ff'];
+                bit.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Animação aleatória
+                const duration = 2 + Math.random() * 2;
+                const delay = Math.random() * 3;
+                bit.style.animation = `data-bit-flow ${duration}s linear infinite ${delay}s`;
+                
+                dataFlow.appendChild(bit);
+            }
+        }
 
-    <!-- Argon JS -->
-    <script src="js/argon-design-system.js"></script>
+        // Configurar interatividade do efeito do canto
+        function setupCornerEffect() {
+            const cornerEffect = document.getElementById('cornerEffect');
+            if (!cornerEffect) return;
 
-    <!--  Typewriter CSS Effect -->
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+            // Criar partículas iniciais
+            createDataBits();
 
-    <!-- Self Script -->
-    <script src="js/script.js"></script>
-  </body>
+            // Interatividade com mouse
+            cornerEffect.addEventListener('mouseenter', function() {
+                this.style.opacity = '1';
+                
+                // Acelerar animações
+                const elements = this.querySelectorAll('.circuit-line, .circuit-node, .data-bit');
+                elements.forEach(el => {
+                    const computedStyle = window.getComputedStyle(el);
+                    const animation = computedStyle.animation;
+                    if (animation && animation !== 'none') {
+                        el.style.animationPlayState = 'running';
+                    }
+                });
+            });
+
+            cornerEffect.addEventListener('mouseleave', function() {
+                this.style.opacity = '0.7';
+            });
+
+            // Clicar para abrir WhatsApp
+           // cornerEffect.style.cursor = 'pointer';
+           // cornerEffect.style.pointerEvents = 'auto';
+            //cornerEffect.addEventListener('click', function() {
+              //  window.open('https://wa.me/5561982161978?text=Olá! Vi o efeito tech do seu site e quero conversar sobre IA.', '_blank');
+           // });
+
+            // Atualizar partículas periodicamente
+            setInterval(createDataBits, 8000);
+        }
+
+        // Animar elementos ao rolar
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animação
+        document.querySelectorAll('.service-card, .case-study, .contact-container').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll para links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Fechar menu mobile se aberto
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Inicializar contadores animados
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                const suffix = counter.textContent.replace(/[0-9]/g, '');
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current) + suffix;
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + suffix;
+                    }
+                };
+                
+                // Iniciar quando visível
+                const counterObserver = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        updateCounter();
+                        counterObserver.unobserve(counter);
+                    }
+                });
+                
+                counterObserver.observe(counter);
+            });
+        }
+
+        // Inicializar tudo quando a página carregar
+        window.addEventListener('load', function() {
+            setupCornerEffect();
+            animateCounters();
+        });
+    </script>
+</body>
 </html>
